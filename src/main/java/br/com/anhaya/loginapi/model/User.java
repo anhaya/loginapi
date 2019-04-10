@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
         @UniqueConstraint(columnNames = "email")
 })
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,9 +26,6 @@ public class User {
 
     @Column(nullable = false)
     private Boolean emailVerified = false;
-
-    @JsonIgnore
-    private String password;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -73,14 +71,6 @@ public class User {
 
     public void setEmailVerified(Boolean emailVerified) {
         this.emailVerified = emailVerified;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public AuthProvider getProvider() {
