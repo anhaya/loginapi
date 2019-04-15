@@ -1,5 +1,4 @@
 package br.com.anhaya.loginapi.model;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -23,9 +22,6 @@ public class User {
     private String email;
 
     private String imageUrl;
-
-    @Column(nullable = false)
-    private Boolean emailVerified = false;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -63,14 +59,6 @@ public class User {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-    }
-
-    public Boolean getEmailVerified() {
-        return emailVerified;
-    }
-
-    public void setEmailVerified(Boolean emailVerified) {
-        this.emailVerified = emailVerified;
     }
 
     public AuthProvider getProvider() {
